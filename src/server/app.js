@@ -1,11 +1,15 @@
 const app = require('express')();
 const graphql = require('graphql');
 const expressGraphQL = require('express-graphql');
+const schema = require('../graphql/schema');
+const resolvers = require('../graphql/resolvers');
 
-const schema = graphql.buildSchema('');
+const compiledSchema = graphql.buildSchema(schema);
 
 app.use('/graphql', expressGraphQL({
-	schema: '',
+	schema: compiledSchema,
 	graphiql: true,
-	rootValue: () => ''
+	rootValue: resolvers
 }));
+
+module.exports = app;
