@@ -8,3 +8,5 @@ type Query {
 	comments: [Comment]
 }
 `;
+
+module.exports = queries;

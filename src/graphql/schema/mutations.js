@@ -6,6 +6,8 @@ const mutation = `
 	}
 
 	type Mutation {
-		
+		createPost(post: PostInput) : Post
 	}
 `;
+
+module.exports = mutation;
