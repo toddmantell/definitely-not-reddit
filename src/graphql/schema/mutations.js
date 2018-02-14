@@ -15,3 +15,5 @@ const mutation = `
 		createComment(comment: CommentInput) : Comment
 	}
 `;
+
+module.exports = mutation;
