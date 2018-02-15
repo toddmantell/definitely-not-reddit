@@ -11,7 +11,7 @@ const mutation = `
 	}
 
 	type Mutation {
-		createPost(post: PostInput) : Post // verify that if you try to send an incomplete PostInput, it fails
+		createPost(post: PostInput) : Post
 		createComment(comment: CommentInput) : Comment
 	}
 `;

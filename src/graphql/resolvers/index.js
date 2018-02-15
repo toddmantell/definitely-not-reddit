@@ -1,1 +1,1 @@
-module.exports = () => 'stub'
+module.exports = () => 'stub';
