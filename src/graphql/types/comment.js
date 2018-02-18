@@ -1,11 +1,7 @@
 const comment = `
 type Comment implements Content {
 	id: Int!
-<<<<<<< HEAD
-	title: String
-=======
 	title: String!
->>>>>>> cde38ee72724e73160bfabd00a2d3101df92a055
 	body: String!
 	author: String!
 	votes: Int!

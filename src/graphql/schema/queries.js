@@ -1,4 +1,4 @@
-const interfaces = require('../interfaces/content');
+const interfaces = require('../interfaces');
 const types = require('../types');
 const queries = interfaces + types + `
 type Query {
