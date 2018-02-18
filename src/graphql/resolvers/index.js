@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require('isomorphic-fetch');
 
 const postFetchOtions = {method: 'POST', mode: 'cors', 
@@ -20,3 +21,6 @@ const createComment = async comment => {
 }
 
 module.exports = {createPost};
+=======
+module.exports = () => 'stub';
+>>>>>>> cde38ee72724e73160bfabd00a2d3101df92a055
