@@ -8,10 +8,12 @@ const mutation = `
 	input CommentInput {
 		body: String
 		author: String
+		postId: Int
 	}
 
 	type Mutation {
 		createPost(post: PostInput) : Post
+		createComment(comment: CommentInput) : Comment
 	}
 `;
 

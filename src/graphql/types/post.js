@@ -4,7 +4,7 @@ const post = `
 		title: String
 		body: String!
 		author: String!
-		votes: Int!
+		votes: Int
 		comments: [Comment]
 	}
 `;
