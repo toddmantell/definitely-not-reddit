@@ -1,10 +1,10 @@
 const comment = `
 type Comment implements Content {
-	id: Int
+	id: Int!
 	title: String
-	body: String
-	author: String
-	votes: Int
+	body: String!
+	author: String!
+	votes: Int!
 }
 `;
 

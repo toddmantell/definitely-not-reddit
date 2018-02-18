@@ -6,7 +6,8 @@
   "dependencies": {
     "express": "^4.16.2",
     "express-graphql": "^0.6.11",
-    "graphql": "^0.13.0"
+    "graphql": "^0.13.0",
+    "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
     "jest": "^22.2.1",

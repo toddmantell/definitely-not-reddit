@@ -1,11 +1,11 @@
 const post = `
 	type Post implements Content {
-		id: Int
+		id: Int!
 		title: String
-		body: String
-		author: String
-		votes: Int
-		comments: [Comment]
+		body: String!
+		author: String!
+		votes: Int!
+
 	}
 `;
 

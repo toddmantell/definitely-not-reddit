@@ -1,4 +1,4 @@
-const interfaces = require('../interfaces');
+const interfaces = require('../interfaces/content');
 const types = require('../types');
 const queries = interfaces + types + `
 type Query {
@@ -8,3 +8,5 @@ type Query {
 	comments: [Comment]
 }
 `;
+
+module.exports = queries;
