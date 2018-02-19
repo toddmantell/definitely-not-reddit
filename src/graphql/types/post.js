@@ -5,7 +5,7 @@ const post = `
 		body: String!
 		author: String!
 		votes: Int
-		comments: [Comment]
+		comments(postId: Int!): [Comment]
 	}
 `;
 
