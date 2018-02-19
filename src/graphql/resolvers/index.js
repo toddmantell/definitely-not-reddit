@@ -12,32 +12,40 @@ const posts = async () => {
 	return response.json();
 }
 
-const post = async id => {
+const post = async ({id}) => {
 	const response = await fetch('http://localhost:5000/posts', {...getFetchOptions, body: id});
 
-	return await response.json();
+	const post = await response.json();
+
+	return post[0];
 }
 
-const comments = async () => {}
+const comments = async () => {
+	const response = await fetch('http://localhost:5001/comments', getFetchOptions);
 
-const comment = async id => {//not working, need to get it to return a single comment
-	const response = await fetch('http://localhost:5001/comments', {getFetchOptions, body: JSON.stringify(id)});
+	return response.json();
+}
 
-	return await response.json();
+const comment = async ({id}) => {
+	const response = await fetch(`http://localhost:5001/comments/${id}`, getFetchOptions);
+
+	const comment = await response.json();
+
+	return comment[0];
 }
 
 const createPost = async post => {
+	console.log('post:', post);
+	
 	const response = await fetch('http://localhost:5000/posts', {...postFetchOptions, body: JSON.stringify(post)});
 
-	return await response.json();
+	return response.json();
 }
 
-const createComment = async comment => {	
+const createComment = async comment => {
 	const response = await fetch('http://localhost:5001/comments', {...postFetchOptions, body: JSON.stringify(comment)});
 
-	const responseData = await response.json();
-
-	return responseData;
+	return response.json();
 }
 
-module.exports = {posts, post, createPost, comment, createComment};
+module.exports = {posts, post, createPost, comments, comment, createComment};
