@@ -1,6 +1,6 @@
 import {GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql';
 
-const commentType = new GraphQLObjectType({
+export default new GraphQLObjectType({
 	name: 'comment',
 	description: 'A comment in response to a post',
 	fields: {
@@ -20,5 +20,5 @@ const commentType = new GraphQLObjectType({
 			type: GraphQLInt,
 			description: 'The sum of upvotes and downvotes this comment received'
 		}
-	}
-})
+	}	
+});
