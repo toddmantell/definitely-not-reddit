@@ -1,5 +1,6 @@
 const comment = `
 type Comment implements Content {
+	# The Comment Id
 	id: Int!
 	# The id of the post that this comment is attached to.
 	postId: Int

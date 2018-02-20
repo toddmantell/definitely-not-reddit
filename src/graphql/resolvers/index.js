@@ -12,18 +12,25 @@ const posts = async () => {
 	return await response.json();
 }
 
-const post = async ({id}) => {
-	const response = await fetch('http://localhost:5000/posts', {...getFetchOptions, body: id});
+const post = async ({id}, {limit}) => {
+	console.log('limit', limit);
+	
+	const response = await fetch(`http://localhost:5000/posts/${id}`, getFetchOptions);
 
-	const post = await response.json();
+	const responseData = await response.json();
+	
+	const comments = getCommentsByPostId(id);
 
-	return post[0];
+	const post = {...responseData[0], comments};
+	
+	return post;
 }
 
-const comments = async ({postId}) => {
+const comments = async ({postId, limit}) => {
 	if (postId) {
-		return getCommentsByPostId(postId);
+		return getCommentsByPostId(postId, limit);
 	}
+	
 	const response = await fetch('http://localhost:5001/comments', getFetchOptions);
 
 	return await response.json();
@@ -53,12 +60,14 @@ const createComment = async ({comment}) => {
 	return await response.json();
 }
 
-async function getCommentsByPostId(postId) {
+async function getCommentsByPostId(postId, limit) {
 	const response = await fetch('http://localhost:5001/comments', getFetchOptions);
 
 	const responseData = await response.json();
 
 	const filteredComments = responseData.filter(comment => comment.postId === postId);
+
+	if (limit) return filteredComments.filter((comment, index) => index < limit);
 
 	return filteredComments;
 }

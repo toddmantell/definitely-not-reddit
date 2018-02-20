@@ -5,7 +5,7 @@ type Query {
 	post(id: Int, title: String, author: String): Post
 	posts: [Post]
 	comment(id: Int, author: String): Comment
-	comments(postId: Int): [Comment]
+	comments(postId: Int, limit: Int): [Comment]
 }
 `;
 
