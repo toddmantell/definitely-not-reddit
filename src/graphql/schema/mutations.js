@@ -1,4 +1,4 @@
-const mutation = `
+module.exports = `
 	input PostInput {
 		title: String!
 		body: String!
@@ -16,5 +16,3 @@ const mutation = `
 		createComment(comment: CommentInput) : Comment
 	}
 `;
-
-module.exports = mutation;

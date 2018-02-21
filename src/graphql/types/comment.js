@@ -1,4 +1,4 @@
-const comment = `
+module.exports = `
 type Comment implements Content {
 	# The Comment Id
 	id: Int!
@@ -9,5 +9,3 @@ type Comment implements Content {
 	votes: Int
 }
 `;
-
-module.exports = comment;

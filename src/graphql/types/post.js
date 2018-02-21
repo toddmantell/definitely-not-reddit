@@ -1,4 +1,4 @@
-const post = `
+module.exports = `
 	type Post implements Content {
 		id: Int!
 		title: String
@@ -8,5 +8,3 @@ const post = `
 		comments(limit: Int): [Comment]
 	}
 `;
-
-module.exports = post;
