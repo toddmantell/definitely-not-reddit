@@ -1,5 +1,5 @@
+Simple GraphQL Project used in my GraphQL talk.
 
-Could see that something like reddit would have even more services:
-User Service - stores user info like karma, subreddits subscribed to, etc.
-Voting Service - with an id and the vote?
-Login/Auth Service - called with user credentials to log someone in, called with authorization
+To run: 
+1. Make sure you have done an npm install
+2. Type nps graphql (or simply nps g)
