@@ -28,7 +28,20 @@ const post = async ({id}, {limit}) => {
 
 const comments = async ({postId, limit}) => {
 	if (postId) {
-		return getCommentsByPostId(postId, limit);
+		try {
+			const response = await fetch('http://localhost:5001/comments', getFetchOptions);
+
+			const responseData = await response.json();
+		
+			const filteredComments = responseData.filter(comment => comment.postId === postId);
+		
+			if (limit) return filteredComments.filter((comment, index) => index < limit);
+		
+			return filteredComments;
+		} catch (error) {
+			console.log(error);
+			fetch('http://ourApi/v2/logging', {...postFetchOptions, error});
+		}
 	}
 	
 	const response = await fetch('http://localhost:5001/comments', getFetchOptions);
@@ -60,16 +73,16 @@ const createComment = async ({comment}) => {
 	return await response.json();
 }
 
-async function getCommentsByPostId(postId, limit) {
-	const response = await fetch('http://localhost:5001/comments', getFetchOptions);
+// async function getCommentsByPostId(postId, limit) {
+// 	const response = await fetch('http://localhost:5001/comments', getFetchOptions);
 
-	const responseData = await response.json();
+// 	const responseData = await response.json();
 
-	const filteredComments = responseData.filter(comment => comment.postId === postId);
+// 	const filteredComments = responseData.filter(comment => comment.postId === postId);
 
-	if (limit) return filteredComments.filter((comment, index) => index < limit);
+// 	if (limit) return filteredComments.filter((comment, index) => index < limit);
 
-	return filteredComments;
-}
+// 	return filteredComments;
+// }
 
 module.exports = {posts, post, createPost, comments, comment, createComment};
